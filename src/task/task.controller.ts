@@ -1,7 +1,6 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post } from '@nestjs/common';
 import { TaskService } from './task.service';
 import { CreateSubtaskDto, CreateTaskDto } from './dto';
-import { pactumEvents } from 'pactum/src/exports/events';
 
 @Controller('task')
 export class TaskController {
@@ -17,12 +16,13 @@ export class TaskController {
         return this.taskService.getTasks();
     }
     @Post("subtask/:id")
+
     addSubTask(@Body() dto:CreateSubtaskDto , @Param('id',ParseIntPipe) taskId:number){
         return this.taskService.addSubTask(dto,taskId)
     }
 
     
-    @Delete("main/{:id}")
+    @Delete("/main/{:id}")
     deleteTask(@Param('id',ParseIntPipe) id:number){
         return this.taskService.deleteTask(id)
     }

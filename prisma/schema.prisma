@@ -26,3 +26,14 @@ model Subtasks {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
+model User{
+  id        Int      @id @default(autoincrement())
+  email String @unique()
+  createdAt DateTime @default(now())
+  password      String
+
+  firstName String?
+  lastName  String?
+  
+}

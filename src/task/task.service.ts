@@ -1,7 +1,6 @@
 import { ForbiddenException, Injectable } from '@nestjs/common';
-import { PrismaService } from 'src/prisma/prisma.service';
+import { PrismaService } from '../../src/prisma/prisma.service';
 import { CreateSubtaskDto, CreateTaskDto } from './dto';
-import { send } from 'process';
 
 @Injectable()
 export class TaskService {
