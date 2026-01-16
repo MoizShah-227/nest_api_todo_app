@@ -1,0 +1,24 @@
+npm run start:dev
+nest g moduel user
+nest g service --no-spec
+docker compose up dev-db -d
+
+
+for hashing argon 
+database config prisma 
+custom decorator 
+tokenization
+dto 
+integaration testing(supertest by default and pactum) [test driven development]
+we can send forbidden error 
+
+
+have created the seprate database for the testing now setting up the environment variable 
+useing dotenv cli
+ after that add your second .env.test to the test-db in pack-json
+	use hook when the e2e run the will run test-db-restart also
+
+
+
+
+

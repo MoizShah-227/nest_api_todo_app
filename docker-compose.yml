@@ -1,0 +1,25 @@
+services:
+  dev-db:
+    image: postgres:15
+    ports:
+      - 5435:5432
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: todo
+    networks:
+      - todocamp
+    
+    
+  test-db:
+    image: postgres:15
+    ports:
+        - 5437:5432
+    environment:
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: 123
+        POSTGRES_DB: todo
+    networks:
+      - todocamp
+networks:
+  todocamp:
