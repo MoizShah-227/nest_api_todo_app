@@ -4,7 +4,7 @@ import { Type } from 'class-transformer';
 
 export class CreateSubtaskDto {
   @IsString()
-  title: string;
+  title!: string;
 
   @IsBoolean()
   @IsOptional()
@@ -13,7 +13,7 @@ export class CreateSubtaskDto {
 
 export class CreateTaskDto {
   @IsString()
-  title: string;
+  title!: string;
 
   @IsBoolean()
   @IsOptional()

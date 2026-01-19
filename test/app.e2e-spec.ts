@@ -3,8 +3,8 @@ import { AppModule } from "../src/app.module";
 import * as pactum from 'pactum';
 import { Test } from '@nestjs/testing';
 import { PrismaService } from "../src/prisma/prisma.service";
-import { CreateSubtaskDto, CreateTaskDto } from "src/task/dto";
-import { AuthDto } from "src/auth/dto";
+import { CreateSubtaskDto, CreateTaskDto } from "../src/task/dto";
+import { AuthDto } from "../src/auth/dto/auth.dto";
 
 describe('App-e2e', () => {
   let app: INestApplication;
