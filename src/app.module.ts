@@ -9,7 +9,7 @@ import { AuthModule } from './auth/auth.module';
     ConfigModule.forRoot({isGlobal:true}),
     PrismaModule,
     TaskModule,
-    AuthModule
+    AuthModule,
   ],
 })
 export class AppModule {}

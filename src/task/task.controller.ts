@@ -1,8 +1,8 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, UseGuards } from '@nestjs/common';
 import { TaskService } from './task.service';
 import { CreateSubtaskDto, CreateTaskDto } from './dto';
-import { GetUser } from 'src/auth/decorator';
-import { JwtGuard } from 'src/auth/guard';
+import { GetUser } from '../../src/auth/decorator';
+import { JwtGuard } from '../../src/auth/guard';
 
 @Controller('task')
 @UseGuards(JwtGuard)
@@ -20,7 +20,7 @@ export class TaskController {
     return this.taskService.addTask(dto, userId);
   }
 
-  @Post("subtasks   /:id")
+  @Post("subtasks/:id")
   addSubTask(
     @GetUser('id') userId: number,
     @Param('id', ParseIntPipe) taskId: number,
