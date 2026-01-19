@@ -6,7 +6,6 @@ import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // ✅ Global Validation Pipe (your existing setup)
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -15,12 +14,11 @@ async function bootstrap() {
     }),
   );
 
-  // ✅ Swagger Configuration
   const config = new DocumentBuilder()
     .setTitle('Task API')
     .setDescription('Task & SubTask APIs')
     .setVersion('1.0')
-    .addBearerAuth() // enables JWT auth in Swagger
+    .addBearerAuth() 
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
