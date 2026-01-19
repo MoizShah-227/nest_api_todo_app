@@ -11,9 +11,13 @@ model Tasks {
   id        Int       @id @default(autoincrement())
   title     String
   completed Boolean   @default(false)
-  subtasks  Subtasks[] // One-to-many relation
+  subtasks  Subtasks[] 
+ 
+  userId    Int
+  user      User      @relation(fields: [userId], references: [id])
   createdAt DateTime  @default(now())
   updatedAt DateTime  @updatedAt
+
 }
 
 model Subtasks {
@@ -31,8 +35,9 @@ model User{
   id        Int      @id @default(autoincrement())
   email String @unique()
   createdAt DateTime @default(now())
-  password      String
-
+  hash    String
+  
+  tasks     Tasks[]
   firstName String?
   lastName  String?
   

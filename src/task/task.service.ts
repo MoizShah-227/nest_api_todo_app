@@ -16,11 +16,12 @@ export class TaskService {
             throw new ForbiddenException(error)
         }
     }
-    async addTask(dto: CreateTaskDto) {
+    async addTask(dto: CreateTaskDto,userId:number) {
     try {
         const task = await this.prisma.tasks.create({
         data: {
             title: dto.title,
+            user:{connect:{id:userId}},
             subtasks: dto.subtasks
             ? {
                 create: dto.subtasks.map(sub => ({
