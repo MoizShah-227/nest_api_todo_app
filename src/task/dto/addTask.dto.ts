@@ -54,3 +54,24 @@ export class EditTaskDto {
   @ApiProperty({example:[{"title":"sub-task-1"}]})
   subtasks?: CreateSubtaskDto[];
 }
+
+
+export class updateTaskDto{
+  @ApiPropertyOptional({ example: 'Updated Task Title' })
+  @IsOptional()
+  @IsString()
+  title?: string;
+}
+
+export class updateSubTaskDto{
+  @ApiPropertyOptional({ example: 'Updated Subtask Title' })
+  @IsOptional()
+  @IsString()
+  title?: string;
+
+  @ApiPropertyOptional({ example: true })
+  @IsOptional()
+  @IsBoolean()
+  completed?: boolean;
+}
+

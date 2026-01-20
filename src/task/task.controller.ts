@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, UseGuards } from '@nestjs/common';
 import { TaskService } from './task.service';
-import { CreateSubtaskDto, CreateTaskDto } from './dto';
+import { CreateSubtaskDto, CreateTaskDto, updateSubTaskDto, updateTaskDto } from './dto';
 import { GetUser } from '../auth/decorator';
 import { JwtGuard } from '../auth/guard';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
@@ -44,7 +44,7 @@ export class TaskController {
 
 
   @Patch("/update-task/:id")
-  updateTask(@GetUser('id') userId: number, @Param('id', ParseIntPipe) taskId: number, @Body() dto: CreateTaskDto) {
+  updateTask(@GetUser('id') userId: number, @Param('id', ParseIntPipe) taskId: number, @Body() dto: updateTaskDto) {
     return this.taskService.updateTask(taskId, dto, userId);
   }
 
@@ -53,7 +53,7 @@ export class TaskController {
   updateSubtask(
     @GetUser('id') userId: number,
     @Param('id', ParseIntPipe) subtaskId: number,
-    @Body() dto: CreateSubtaskDto
+    @Body() dto: updateSubTaskDto
   ) {
     return this.taskService.updateSubTask(subtaskId, dto, userId);
   }

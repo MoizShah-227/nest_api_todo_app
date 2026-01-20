@@ -1,6 +1,6 @@
 import { ForbiddenException, Injectable } from '@nestjs/common';
 import { PrismaService } from '../prisma/prisma.service';
-import { CreateSubtaskDto, CreateTaskDto } from './dto';
+import { CreateSubtaskDto, CreateTaskDto, updateSubTaskDto, updateTaskDto } from './dto';
 
 @Injectable()
 export class TaskService {
@@ -78,7 +78,7 @@ export class TaskService {
     
   }
 
-  async updateTask(taskId: number, dto: CreateTaskDto, userId: number) {
+  async updateTask(taskId: number, dto: updateTaskDto, userId: number) {
     const task = await this.prisma.tasks.findUnique({ where: { id: taskId } });
 
     if (!task || task.userId !== userId) {
@@ -91,7 +91,7 @@ export class TaskService {
     });
   }
 
-  async updateSubTask(subtaskId: number, dto: CreateSubtaskDto, userId: number) {
+  async updateSubTask(subtaskId: number, dto: updateSubTaskDto, userId: number) {
     const subtask = await this.prisma.subtasks.findUnique({
       where: { id: subtaskId },
       include: { task: true },
