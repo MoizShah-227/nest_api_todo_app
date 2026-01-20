@@ -8,9 +8,9 @@ export class PrismaService extends PrismaClient implements OnModuleInit, OnModul
   constructor(config: ConfigService) {
     const adapter = new PrismaPg({
       connectionString: config.get<string>('DATABASE_URL'),
+      ssl: { rejectUnauthorized: false }
     });
     super({ adapter });
-    console.log(adapter)
   }
 
   async onModuleInit() {

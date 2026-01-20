@@ -1,6 +1,7 @@
 
 datasource db {
-  provider = "postgresql"
+  provider = "postgresql",
+   sslmode  = "require"
 }
 
 generator client {
