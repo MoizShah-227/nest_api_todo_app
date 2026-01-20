@@ -28,7 +28,7 @@
     "test:e2e": "dotenv -e .env.test -- jest --watchAll --no-cache --config ./test/jest-e2e.json",
     "test1:e2e": "dotenv -e .env.test -- jest --watchAll --no-cache --config ./test/jest-e2e.json",
     "postinstall": "prisma generate",
-    "start:prod": "npx prisma db push && node dist/main"
+    "start:prod": "prisma db push && node dist/main"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
