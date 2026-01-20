@@ -1,8 +1,8 @@
 import { Body, Controller, Delete, Get, Param, ParseIntPipe, Patch, Post, UseGuards } from '@nestjs/common';
 import { TaskService } from './task.service';
 import { CreateSubtaskDto, CreateTaskDto } from './dto';
-import { GetUser } from '../../src/auth/decorator';
-import { JwtGuard } from '../../src/auth/guard';
+import { GetUser } from '../auth/decorator';
+import { JwtGuard } from '../auth/guard';
 import { ApiBearerAuth, ApiTags } from '@nestjs/swagger';
 
 @ApiTags('Tasks')
